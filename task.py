@@ -105,6 +105,8 @@ def main():
         rec.add_birthday(contact['birthday'])
         address_book.add_record(rec)
 
+    print(address_book)
+
     print('Welcome to the assistant bot!')
     while True:
         user_input = input('Enter a command: ')

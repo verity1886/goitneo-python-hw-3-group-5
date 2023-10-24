@@ -90,16 +90,18 @@ class AddressBook(UserDict):
         return lines
 
     def __str__(self):
-        res = {}
+        lines = []
         for key in self.data.keys():
             rec: Record = self.data[key]
-            res[key] = {
-                'name': str(rec.name),
-                'phone': str(rec.phone),
-                'birtday': str(rec.bday)
-            }
+            lines.append(
+                'Name: {}; Phone: {}; Birthday: {}.'.format(
+                    str(rec.name),
+                    str(rec.phone),
+                    str(rec.bday)
+                )
+            )
 
-        return json.dumps(res)
+        return '\n'.join(lines)
 
     def get_birthdays_per_week(self):
         def get_congratulation_day(day_str: str):
